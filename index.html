@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waffles App</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+  <h2>Seleccionar Mesa</h2>
+  <div id="mesas"></div>
+
+  <div style="text-align: center; margin: 20px;">
+    <button onclick="seleccionarParaLlevar()">📦 Pedidos para llevar</button>
+  </div>
+
+  <div style="text-align: center; margin: 10px;">
+    <button onclick="seleccionarAgregadoDeMesa()">➕ Agregado de mesa</button>
+  </div>
+
+  <h3 id="mesaSeleccionadaTexto" style="margin-top: 10px; color: darkgreen;"></h3>
+
+  <div id="categorias" class="hidden">
+    <h2>Categorías</h2>
+    <div class="categoria"><button onclick="mostrarProductos('Cafeteria')">Cafeteria</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('infusiones')">Infusiones</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('croissants')">Croissants</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('panqueque')">Panqueques y creeps</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('wafflessalados')">Waffles salados</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('wafflesfruta')">Waffles con fruta</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('waffleshelado')">Waffles con helado</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('waffleschocolate')">Waffles con Chocolate</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('wafflestriples')">Waffles triples</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('vasosfrutales')">Vasos frutales</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('Milkshakes')">Milkshakes</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('frias')">Bebidas</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('frapus')">Frapuccinos</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('smotie')">Smoothies</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('lic')">Licuados</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('jarras')">Jarras</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('pan')">Panificados</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('promos')">Promos</button></div>
+    <div class="categoria"><button onclick="mostrarProductos('extra')">EXTRA</button></div>
+  </div>
+
+  <div id="modificarPedido" class="hidden">
+    <h3>Modificar Comanda</h3>
+    <div id="listaPedido"></div>
+    <button onclick="mostrarCategorias()">Agregar Producto</button>
+    <button onclick="finalizarPedido()">✅ Finalizar Pedido</button>
+  </div>
+
+  <div id="panelPrecios" class="hidden">
+    <h2>Modificar Precios</h2>
+    <div id="listaCategoriasPrecios"></div>
+    <button id="btnGuardarCambios" onclick="guardarPreciosLocal()">💾 Guardar Cambios</button>
+    <button id="btnCerrarPanel" onclick="cerrarPanelPrecios()">❌ Cerrar</button>
+  </div>
+
+  <button onclick="mostrarPanelPrecios()">🛠️ Modificar Precios</button>
+
+
+
+  <div id="productos" class="hidden">
+    <h2 id="tituloCategoria"></h2>
+    <div id="listaProductos"></div>
+    <button onclick="mostrarCategorias()">Volver a categorías</button>
+    <button onclick="finalizarPedido()">Finalizar pedido</button>
+  </div>
+
+  <div id="accionesMesa" class="hidden">
+    <h2 id="tituloMesa"></h2>
+    <div class="accion"><button onclick="imprimirTicket()">🧾💰 Imprimir Ticket y cobrar</button></div>
+    <div class="accion"><button onclick="imprimirTicketparacocina()">🧾 Imprimir ticket cocina</button></div>
+    <div class="accion"><button onclick="cobrarMesa()">CERRAR Y BORRAR MESA</button></div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <!-- Scripts locales -->
+  <script src="js/productos.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/pedidos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
